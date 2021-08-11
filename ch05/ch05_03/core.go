@@ -6,10 +6,10 @@ import (
 
 var store = make(map[string]string)
 
-func Put(key string, value string) error {
-	store[key] = value
+func Delete(key string) error {
+	delete(store, key)
 
-	return nil
+	return  nil
 }
 
 var ErrorNoSuchKey = errors.New("no such key")
@@ -24,12 +24,8 @@ func Get(key string) (string, error) {
 	return value, nil
 }
 
-func Delete(key string) error {
-	delete(store, key)
+func Put(key string, value string) error {
+	store[key] = value
 
-	return  nil
-}
-
-func main() {
-
+	return nil
 }
